@@ -1,0 +1,372 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #202024;
+  color: #FFFFFF;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-header {
+  background-color: #121214;
+  padding: 3px 25px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.user-avatar {
+  border-radius: 50%;
+  width: 50px; /* Или любой другой желаемый размер */
+  height: 50px; /* Должен совпадать с шириной */
+  object-fit: cover;
+}
+
+.username {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.logo-container h2 {
+  font-size: 1.3em;
+}
+
+.category-icon {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.search-bar {
+  flex-grow: 1;
+  max-width: 600px;
+  margin-left: 120px;
+  margin-right: 120px;
+}
+
+.search-bar input[type="text"]::placeholder {
+  color: #565664;
+}
+
+.search-bar input[type="text"] {
+  width: 100%;
+  height: 32px;
+  background-color: rgba(32, 32, 36, 1);
+  border: none;
+  border-radius: 7px;
+  color: #FFFFFF;
+  padding: 0 15px 0 45px;
+  background-image: url('/static/assets/loupe.svg');
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  background-size: 20px 20px;
+}
+
+.search-bar input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px #929090;
+}
+
+.settings-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  background-color: rgba(32, 32, 36, 1);
+  border-radius: 7px;
+  cursor: pointer;
+  margin-left: 0;
+  color: #FFFFFF;
+  position: relative;
+  transition: border-radius 0.2s ease;
+  z-index: 11;
+}
+
+.login-text {
+  margin-left: auto;
+  padding: 8px 15px;
+  cursor: pointer;
+  position: relative;
+  font-size: 20px;
+}
+
+.login-text span {
+  position: relative;
+}
+
+.login-text span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background-color: #FFFFFF;
+  transition: background-color 0.2s ease;
+}
+
+
+
+.settings-button.active {
+  border-radius: 7px 7px 0 0;
+}
+
+.settings-icon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+  transform: rotate(-90deg);
+}
+
+.settings-button.active .settings-icon {
+  transform: rotate(0deg);
+}
+
+.settings-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: rgba(32, 32, 36, 1);
+  border-radius: 0 0 7px 7px;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s ease;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.settings-button.active .settings-dropdown {
+  max-height: 150px;
+  border-top: 1px solid #474747;
+}
+
+.dropdown-item {
+  padding: 10px 15px;
+  color: #FFFFFF;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(92, 92, 112, 0.3);
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.sidebar {
+  width: 300px;
+  background-color: #121214;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  transform: translateX(0);
+}
+
+.sidebar.collapsed {
+  transform: translateX(-100%);
+}
+
+.sidebar-nav {
+  height: 100%;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 5px;
+}
+
+.sidebar-nav > ul > li > a {
+  text-decoration: none;
+  color: #FFFFFF;
+  display: block;
+  padding: 8px 10px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.sidebar-nav > ul > li > a:hover {
+  background-color: rgba(92, 92, 112, 0.3);
+}
+
+.nav-section-toggle {
+  text-decoration: none;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.toggle-icon {
+  position: absolute;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  top: 12px;
+  transition: transform 0.3s ease;
+  transform: rotate(-90deg);
+}
+
+.toggle-icon.rotated {
+  transform: rotate(0deg);
+}
+
+.collapsible-list {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 5px 20px;
+  overflow: hidden;
+  max-height: 0;
+  position: relative;
+}
+
+.collapsible-list.expanded {
+  max-height: 500px;
+}
+
+.collapsible-list.expanded::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 18px;
+  width: 1px;
+  background-color: #474747;
+}
+
+.collapsible-list li a.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 25px;
+  right: 35px;
+  bottom: 0;
+  background-color: #9C989F33;
+  border-radius: 4px;
+  z-index: -1;
+}
+
+.collapsible-list li a.active {
+  color: #ffffff !important
+}
+
+.collapsible-list li {
+  position: relative;
+}
+
+.collapsible-list li a {
+  text-decoration: none;
+  color: #929090;
+  display: block;
+  padding: 8px 10px 8px 30px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.collapsible-list li a:hover {
+  color: #ffffff;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  transform: translateX(300px);
+  width: calc(100% - 300px);
+  height: 100%;
+}
+
+.sidebar.collapsed + .main-content {
+  transform: translateX(0);
+  width: 100%;
+}
+
+.chat-area {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  width: 100%;
+  box-shadow:
+    inset 0 15px 20px -10px rgba(0, 0, 0, 0.7),
+    inset 0 -15px 20px -10px rgba(0, 0, 0, 0.7),
+    inset 15px 0 20px -10px rgba(0, 0, 0, 0.7),
+    inset -15px 0 20px -10px rgba(0, 0, 0, 0.7);
+}
+
+.message {
+  margin-bottom: 10px;
+  font-size: 0.9em;
+}
+
+.message .timestamp {
+  color: #6e6c8f;
+  margin-right: 5px;
+}
+
+.message .tag {
+  color: #89b4fa;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.message .tag.admin {
+  color: #f38ba8;
+}
+
+.message .username {
+  color: #a6e3a1;
+  font-weight: bold;
+}

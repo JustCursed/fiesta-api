@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>McSkill</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<header class="main-header">
+  <div class="header-content">
+    <div class="logo-container">
+      <img src="static/assets/logo.svg" alt="Icon logo" class="category-icon">
+      <h2>Категория</h2>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search">
+    </div>
+    <div class="settings-button">
+      <span>Параметры</span>
+      <img src="static/assets/ci_chevron-down.svg" alt="Стрелка" class="settings-icon">
+      <div class="settings-dropdown">
+        <div class="dropdown-item">Предмет</div>
+        <div class="dropdown-item">Действие</div>
+        <div class="dropdown-item">Ник</div>
+      </div>
+    </div>
+    <div class="user-profile">
+      <span class="username">Питух</span>
+      <img src="https://cdn.discordapp.com/avatars/461539277713571840/a_03bb641344f8bae6ddb21c31a29885e0.png?size=80" alt="Аватар" class="user-avatar">
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <aside class="sidebar">
+    <nav class="sidebar-nav">
+      <ul>
+        <li class="collapsible-item">
+          <a href="#" class="nav-section-toggle">
+            <span>Сервера</span>
+            <img src="static/assets/ci_chevron-down.svg" alt="Переключить" class="toggle-icon">
+          </a>
+          <ul class="collapsible-list">
+            {{range .servers}}
+            <li><a href="#">{{.}}</a></li>
+            {{end}}
+          </ul>
+        </li>
+        <li><a href="#">Чат</a></li>
+        <li><a href="#">Предметы</a></li>
+        <li><a href="#">Перемещение</a></li>
+        <li><a href="#">Выход/вход</a></li>
+        <li class="collapsible-item">
+          <a href="#" class="nav-section-toggle">
+            <span>Дата</span>
+            <img src="static/assets/ci_chevron-down.svg" alt="Переключить" class="toggle-icon">
+          </a>
+          <ul class="collapsible-list">
+            {{range .dates}}
+            <li><a href="#" class="date-item">{{.}}</a></li>
+            {{end}}
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <section class="chat-area">
+      <div id="logs-list" class="message" >Загрузка логов...</div>
+      <div class="message">[18:27:12] Evgeny98 зашёл</div>
+      <div class="message">[18:27:31] DoctorStorm issued server command: /zset</div>
+      <div class="message">[18:27:15] Evgeny98 issued server command: /spawn</div>
+      <div class="message">[18:27:16] Evgeny98 вышел</div>
+      <div class="message">[18:27:20] Evgeny98 зашёл</div>
+      <div class="message">[18:27:22] [L] TinTina: о</div>
+      <div class="message">[18:27:57] DoctorStorm issued server command: /zse</div>
+      <div class="message">[18:28:05] [L] Velonity: нехуя</div>
+      <div class="message">[18:28:07] [L] Velonity: махина</div>
+      <div class="message">[18:28:09] Aahahahha issued server command: /home</div>
+      <div class="message">[18:28:11] pata205 issued server command: /home</div>
+      <div class="message">[18:28:12] [L] Velonity: на скрине меньше выглядела</div>
+      <div class="message">[18:28:18] [L] TinTina: их еще и две</div>
+      <div class="message">[18:28:35] pata205 issued server command: /home</div>
+      <div class="message">[18:28:53] pata205 issued server command: /home</div>
+      <div class="message">[18:29:16] pata205 issued server command: /home</div>
+      <div class="message">[18:29:30] pata205 issued server command: /home</div>
+      <div class="message">[18:29:32] DoctorStorm issued server command: /warp nether</div>
+      <div class="message">[18:29:46] pata205 issued server command: /home</div>
+      <div class="message">[18:31:05] pata205 issued server command: /home</div>
+      <div class="message">[18:31:22] Mihail_Glitch issued server command: /msg TinTina тут? у вас на варпе при покупки имперской и трудолюбивой пишет "нет в наличии"</div>
+      <div class="message">[18:31:31] pata205 issued server command: /home</div>
+      <div class="message">[18:31:36] [L] Mihail_Glitch: 1</div>
+      <div class="message">[18:31:42] pata205 issued server command: /home</div>
+      <div class="message">[18:31:49] Mihail_Glitch issued server command: /msg Velonity тут?</div>
+      <div class="message">[18:32:10] pata205 issued server command: /home</div>
+      <div class="message">[18:32:22] [G] Mihail_Glitch: куплю имперскую и трудолюбивую</div>
+      <div class="message">[18:32:52] [G] Mihail_Glitch: пчел</div>
+      <div class="message">[18:33:11] Demon_Enda issued server command: /home</div>
+      <div class="message">[18:33:41] pata205 issued server command: /home</div>
+      <div class="message">[18:34:01] pata205 issued server command: /home</div>
+      <div class="message">[18:34:14] DoctorStorm issued server command: /warp nether</div>
+      <div class="message">[18:34:24] [G] vano18rus: фитогенка</div>
+      <div class="message">[18:34:41] Mihail_Glitch issued server command: /r просто пчёлы, хочу нормально начать форестри распахивать без фарма первых пчёл</div>
+      <div class="message">[18:34:56] Alohaffl issued server command: /rtp</div>
+      <div class="message">[18:34:58] pata205 issued server command: /home</div>
+      <div class="message">[18:35:08] Mihail_Glitch issued server command: /r за скок</div>
+      <div class="message">[18:35:13] [L] Mihail_Glitch: .рщьу</div>
+      <div class="message">[18:35:13] Mihail_Glitch issued server command: /home</div>
+      <div class="message">[18:35:29] pata205 issued server command: /home</div>
+      <div class="message">[18:35:33] KibernetShow issued server command: /cmi feed</div>
+      <div class="message">[18:35:34] Demon_Enda issued server command: /home</div>
+      <div class="message">[18:35:50] Alohaffl issued server command: /kit start</div>
+      <div class="message">[18:36:44] pata205 issued server command: /home</div>
+      <div class="message">[18:38:13] Democat issued server command: /cmi feed</div>
+      <div class="message">[18:40:04] BanMak issued server command: /warp top</div>
+      <div class="message">[18:40:08] BanMak issued server command: /home</div>
+      <div class="message">[18:40:27] [G] vano18rus: но у тебя киновари не хватит, если ток ставить собрался</div>
+      <div class="message">[18:40:36] [G] vano18rus: на 1кинорварь же</div>
+      <div class="message">[18:41:07] [G] vano18rus: конечно)</div>
+      <div class="message">[18:41:33] [G] vano18rus: ты можешь выборочно ресы переробатывать в нём</div>
+      <div class="message">[18:41:54] [G] vano18rus: 10к киновари с головой?</div>
+    </section>
+  </main>
+</div>
+<script src="/static/scripts/script.js"></script>
+</body>
+</html>
